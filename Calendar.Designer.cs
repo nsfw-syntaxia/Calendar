@@ -251,7 +251,7 @@ namespace Calendar
             // 
             toolStripE.BackColor = Color.Transparent;
             toolStripE.BorderColor = Color.Transparent;
-            toolStripE.ForeColor = Color.Black;
+            toolStripE.ForeColor = Color.FromArgb(60, 63, 65);
             toolStripE.GripStyle = ToolStripGripStyle.Hidden;
             toolStripE.Items.AddRange(new ToolStripItem[] { tsEvent });
             toolStripE.Location = new Point(0, 0);
@@ -405,7 +405,7 @@ namespace Calendar
             // 
             toolStripA.BackColor = Color.Transparent;
             toolStripA.BorderColor = Color.Transparent;
-            toolStripA.ForeColor = Color.Black;
+            toolStripA.ForeColor = Color.FromArgb(60, 63, 65);
             toolStripA.GripStyle = ToolStripGripStyle.Hidden;
             toolStripA.Items.AddRange(new ToolStripItem[] { tsAppointment });
             toolStripA.Location = new Point(0, 0);
@@ -568,7 +568,7 @@ namespace Calendar
             // 
             toolStripT.BackColor = Color.Transparent;
             toolStripT.BorderColor = Color.Transparent;
-            toolStripT.ForeColor = Color.Black;
+            toolStripT.ForeColor = Color.FromArgb(60, 63, 65);
             toolStripT.GripStyle = ToolStripGripStyle.Hidden;
             toolStripT.Items.AddRange(new ToolStripItem[] { tsTask });
             toolStripT.Location = new Point(0, 0);
