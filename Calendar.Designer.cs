@@ -259,7 +259,6 @@
             toolStripE.Padding = new Padding(10, 10, 1, 0);
             toolStripE.Size = new Size(269, 38);
             toolStripE.TabIndex = 3;
-            toolStripE.Text = "parrotToolStrip2";
             // 
             // tsEvent
             // 
@@ -414,7 +413,6 @@
             toolStripA.Padding = new Padding(10, 10, 1, 0);
             toolStripA.Size = new Size(269, 38);
             toolStripA.TabIndex = 2;
-            toolStripA.Text = "parrotToolStrip2";
             // 
             // tsAppointment
             // 
@@ -578,7 +576,6 @@
             toolStripT.Padding = new Padding(10, 10, 1, 0);
             toolStripT.Size = new Size(269, 38);
             toolStripT.TabIndex = 1;
-            toolStripT.Text = "parrotToolStrip1";
             // 
             // tsTask
             // 
@@ -596,7 +593,7 @@
             // 
             TN.ForeColor = Color.FromArgb(60, 63, 65);
             TN.Name = "TN";
-            TN.Size = new Size(180, 26);
+            TN.Size = new Size(113, 26);
             TN.Text = "New";
             TN.Click += TN_Click;
             // 
@@ -605,7 +602,7 @@
             TF.DropDownItems.AddRange(new ToolStripItem[] { TFA, TFP, TFC });
             TF.ForeColor = Color.FromArgb(60, 63, 65);
             TF.Name = "TF";
-            TF.Size = new Size(180, 26);
+            TF.Size = new Size(113, 26);
             TF.Text = "Filter";
             // 
             // TFA
@@ -637,7 +634,7 @@
             TS.DropDownItems.AddRange(new ToolStripItem[] { TSD, TSP, TST });
             TS.ForeColor = Color.FromArgb(60, 63, 65);
             TS.Name = "TS";
-            TS.Size = new Size(180, 26);
+            TS.Size = new Size(113, 26);
             TS.Text = "Sort";
             // 
             // TSD
@@ -666,22 +663,22 @@
             cmsEvents.Font = new Font("ISOCPEUR", 12F);
             cmsEvents.Items.AddRange(new ToolStripItem[] { viewEvent, deleteEvent });
             cmsEvents.Name = "cmsTasks";
-            cmsEvents.Size = new Size(120, 56);
+            cmsEvents.Size = new Size(160, 56);
             // 
             // viewEvent
             // 
             viewEvent.ForeColor = Color.FromArgb(60, 63, 65);
             viewEvent.Name = "viewEvent";
-            viewEvent.Size = new Size(119, 26);
-            viewEvent.Text = "View";
+            viewEvent.Size = new Size(159, 26);
+            viewEvent.Text = "View Event";
             viewEvent.Click += viewEvent_Click;
             // 
             // deleteEvent
             // 
             deleteEvent.ForeColor = Color.FromArgb(60, 63, 65);
             deleteEvent.Name = "deleteEvent";
-            deleteEvent.Size = new Size(119, 26);
-            deleteEvent.Text = "Delete";
+            deleteEvent.Size = new Size(159, 26);
+            deleteEvent.Text = "Delete Event";
             deleteEvent.Click += deleteEvent_Click;
             // 
             // cmsAppointments
@@ -689,29 +686,29 @@
             cmsAppointments.Font = new Font("ISOCPEUR", 12F);
             cmsAppointments.Items.AddRange(new ToolStripItem[] { viewA, deleteA, macoA, macaA });
             cmsAppointments.Name = "cmsTasks";
-            cmsAppointments.Size = new Size(197, 108);
+            cmsAppointments.Size = new Size(201, 108);
             // 
             // viewA
             // 
             viewA.ForeColor = Color.FromArgb(60, 63, 65);
             viewA.Name = "viewA";
-            viewA.Size = new Size(196, 26);
-            viewA.Text = "View";
+            viewA.Size = new Size(200, 26);
+            viewA.Text = "View Appointment";
             viewA.Click += viewA_Click;
             // 
             // deleteA
             // 
             deleteA.ForeColor = Color.FromArgb(60, 63, 65);
             deleteA.Name = "deleteA";
-            deleteA.Size = new Size(196, 26);
-            deleteA.Text = "Delete";
+            deleteA.Size = new Size(200, 26);
+            deleteA.Text = "Delete Appointment";
             deleteA.Click += deleteA_Click;
             // 
             // macoA
             // 
             macoA.ForeColor = Color.FromArgb(60, 63, 65);
             macoA.Name = "macoA";
-            macoA.Size = new Size(196, 26);
+            macoA.Size = new Size(200, 26);
             macoA.Text = "Mark as Completed";
             macoA.Click += macoA_Click;
             // 
@@ -719,7 +716,7 @@
             // 
             macaA.ForeColor = Color.FromArgb(60, 63, 65);
             macaA.Name = "macaA";
-            macaA.Size = new Size(196, 26);
+            macaA.Size = new Size(200, 26);
             macaA.Text = "Mark as Canceled";
             macaA.Click += macaA_Click;
             // 
@@ -735,7 +732,7 @@
             viewTask.ForeColor = Color.FromArgb(60, 63, 65);
             viewTask.Name = "viewTask";
             viewTask.Size = new Size(196, 26);
-            viewTask.Text = "View";
+            viewTask.Text = "View Task";
             viewTask.Click += viewTask_Click;
             // 
             // deleteTask
@@ -743,7 +740,7 @@
             deleteTask.ForeColor = Color.FromArgb(60, 63, 65);
             deleteTask.Name = "deleteTask";
             deleteTask.Size = new Size(196, 26);
-            deleteTask.Text = "Delete";
+            deleteTask.Text = "Delete Task";
             deleteTask.Click += deleteTask_Click;
             // 
             // macTask
@@ -1080,6 +1077,7 @@
             Controls.Add(panelView);
             Controls.Add(panelSide);
             Controls.Add(toopStripControls);
+            ForeColor = Color.FromArgb(60, 63, 65);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Calendar";
             toopStripControls.ResumeLayout(false);
