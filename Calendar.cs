@@ -413,6 +413,48 @@ namespace Calendar
             loadTasks(taskFilter);
         }
 
+        private void TSD_Click(object sender, EventArgs e)
+        {
+            baseDirectory = AppContext.BaseDirectory;
+            filePath = Path.Combine(baseDirectory, "User_Inputs", "Tasks.txt");
+
+            if (!File.Exists(filePath))
+            {
+                MessageBox.Show("Tasks.txt not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            List<TaskList> taskList = new List<TaskList>();
+
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(',');
+
+                    if (parts.Length < 3) continue;
+
+                    string title = parts[1];
+                    DateTime date;
+
+                    if (!DateTime.TryParse(parts[2], out date)) continue;
+
+                    taskList.Add(new TaskList { Title = title, Date = date });
+                }
+            }
+
+            taskList = taskList.OrderBy(task => task.Date).ToList();
+
+            tableTasks.Controls.Clear();
+            tableTasks.RowCount = 1;
+
+            foreach (var task in taskList)
+            {
+                addTask(task.Title, task.Date.ToString("MM-dd-yyyy"));
+            }
+        }
+
         private void viewTask_Click(object sender, EventArgs e)
         {
             var menuItem = (ToolStripMenuItem)sender;
@@ -974,5 +1016,12 @@ namespace Calendar
             eventFilter = "all";
             loadEvents(eventFilter);
         }
+    }
+
+    class TaskList
+    {
+        public string Title { get; set; }
+        public DateTime Date { get; set; }
+        //public int Priority { get; set; }
     }
 }

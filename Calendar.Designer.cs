@@ -602,7 +602,7 @@ namespace Calendar
             // 
             TN.ForeColor = Color.FromArgb(60, 63, 65);
             TN.Name = "TN";
-            TN.Size = new Size(113, 26);
+            TN.Size = new Size(180, 26);
             TN.Text = "New";
             TN.Click += TN_Click;
             // 
@@ -611,7 +611,7 @@ namespace Calendar
             TF.DropDownItems.AddRange(new ToolStripItem[] { TFA, TFP, TFC });
             TF.ForeColor = Color.FromArgb(60, 63, 65);
             TF.Name = "TF";
-            TF.Size = new Size(113, 26);
+            TF.Size = new Size(180, 26);
             TF.Text = "Filter";
             // 
             // TFA
@@ -643,28 +643,29 @@ namespace Calendar
             TS.DropDownItems.AddRange(new ToolStripItem[] { TSD, TSP, TST });
             TS.ForeColor = Color.FromArgb(60, 63, 65);
             TS.Name = "TS";
-            TS.Size = new Size(113, 26);
+            TS.Size = new Size(180, 26);
             TS.Text = "Sort";
             // 
             // TSD
             // 
             TSD.ForeColor = Color.FromArgb(60, 63, 65);
             TSD.Name = "TSD";
-            TSD.Size = new Size(126, 26);
+            TSD.Size = new Size(180, 26);
             TSD.Text = "Date";
+            TSD.Click += TSD_Click;
             // 
             // TSP
             // 
             TSP.ForeColor = Color.FromArgb(60, 63, 65);
             TSP.Name = "TSP";
-            TSP.Size = new Size(126, 26);
+            TSP.Size = new Size(180, 26);
             TSP.Text = "Priority";
             // 
             // TST
             // 
             TST.ForeColor = Color.FromArgb(60, 63, 65);
             TST.Name = "TST";
-            TST.Size = new Size(126, 26);
+            TST.Size = new Size(180, 26);
             TST.Text = "Title";
             // 
             // cmsEvents
