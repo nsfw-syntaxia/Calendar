@@ -347,48 +347,6 @@ namespace Calendar
 
             tasksLoaded = true;
         }
-        /*
-        private void addTask(string title, string date)
-        {
-            int rowIndex = tableTasks.RowCount - 1;
-            tableTasks.RowCount++;
-
-            ContextMenuStrip taskMenu = new ContextMenuStrip();
-
-            ToolStripMenuItem viewTask = new ToolStripMenuItem("View Task");
-            viewTask.Click += viewTask_Click;
-            viewTask.Tag = new { Title = title, Date = date };
-
-            ToolStripMenuItem deleteTask = new ToolStripMenuItem("Delete Task");
-            deleteTask.Click += deleteTask_Click;
-            deleteTask.Tag = new { Title = title, Date = date };
-
-            ToolStripMenuItem markCompleted = new ToolStripMenuItem("Mark as Completed");
-            markCompleted.Click += macTask_Click;
-            markCompleted.Tag = new { Title = title, Date = date };
-
-            taskMenu.Items.Add(viewTask);
-            taskMenu.Items.Add(deleteTask);
-            taskMenu.Items.Add(markCompleted);
-
-            Label titleLabel = new Label
-            {
-                Text = title,
-                AutoSize = true,
-                ContextMenuStrip = taskMenu
-            };
-            tableTasks.Controls.Add(titleLabel, 0, rowIndex);
-
-            Label dateLabel = new Label
-            {
-                Text = date,
-                AutoSize = true,
-                ContextMenuStrip = taskMenu
-            };
-            tableTasks.Controls.Add(dateLabel, 1, rowIndex);
-
-            tableTasks.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-        }*/
 
         private void addTask(string title, string date)
         {
