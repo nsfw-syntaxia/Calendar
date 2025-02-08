@@ -341,6 +341,7 @@ namespace Calendar
             ESD.Name = "ESD";
             ESD.Size = new Size(180, 26);
             ESD.Text = "Date";
+            ESD.Click += ESD_Click;
             // 
             // ESTT
             // 
@@ -348,6 +349,7 @@ namespace Calendar
             ESTT.Name = "ESTT";
             ESTT.Size = new Size(180, 26);
             ESTT.Text = "Title";
+            ESTT.Click += ESTT_Click;
             // 
             // panelA
             // 

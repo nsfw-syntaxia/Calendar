@@ -1083,6 +1083,16 @@ namespace Calendar
             eventFilter = "all";
             loadEvents(eventFilter);
         }
+
+        private void ESD_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ESTT_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     class TaskList
