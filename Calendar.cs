@@ -455,6 +455,11 @@ namespace Calendar
             }
         }
 
+        private void TSP_Click(object sender, EventArgs e)
+        {
+            // sort tasks by priority (high on top, to low)
+        }
+
         private void viewTask_Click(object sender, EventArgs e)
         {
             var menuItem = (ToolStripMenuItem)sender;
@@ -1022,6 +1027,6 @@ namespace Calendar
     {
         public string Title { get; set; }
         public DateTime Date { get; set; }
-        //public int Priority { get; set; }
+        public int Priority { get; set; }
     }
 }

@@ -293,7 +293,7 @@ namespace Calendar
             // 
             EFA.ForeColor = Color.FromArgb(60, 63, 65);
             EFA.Name = "EFA";
-            EFA.Size = new Size(180, 26);
+            EFA.Size = new Size(133, 26);
             EFA.Text = "All";
             EFA.Click += EFA_Click;
             // 
@@ -301,7 +301,7 @@ namespace Calendar
             // 
             EFP.ForeColor = Color.FromArgb(60, 63, 65);
             EFP.Name = "EFP";
-            EFP.Size = new Size(180, 26);
+            EFP.Size = new Size(133, 26);
             EFP.Text = "Personal";
             EFP.Click += EFP_Click;
             // 
@@ -309,7 +309,7 @@ namespace Calendar
             // 
             EFSO.ForeColor = Color.FromArgb(60, 63, 65);
             EFSO.Name = "EFSO";
-            EFSO.Size = new Size(180, 26);
+            EFSO.Size = new Size(133, 26);
             EFSO.Text = "Social";
             EFSO.Click += EFSO_Click;
             // 
@@ -317,7 +317,7 @@ namespace Calendar
             // 
             EFSC.ForeColor = Color.FromArgb(60, 63, 65);
             EFSC.Name = "EFSC";
-            EFSC.Size = new Size(180, 26);
+            EFSC.Size = new Size(133, 26);
             EFSC.Text = "School";
             EFSC.Click += EFSC_Click;
             // 
@@ -325,7 +325,7 @@ namespace Calendar
             // 
             EFW.ForeColor = Color.FromArgb(60, 63, 65);
             EFW.Name = "EFW";
-            EFW.Size = new Size(180, 26);
+            EFW.Size = new Size(133, 26);
             EFW.Text = "Work";
             EFW.Click += EFW_Click;
             // 
@@ -341,21 +341,21 @@ namespace Calendar
             // 
             ESD.ForeColor = Color.FromArgb(60, 63, 65);
             ESD.Name = "ESD";
-            ESD.Size = new Size(130, 26);
+            ESD.Size = new Size(180, 26);
             ESD.Text = "Date";
             // 
             // ESL
             // 
             ESL.ForeColor = Color.FromArgb(60, 63, 65);
             ESL.Name = "ESL";
-            ESL.Size = new Size(130, 26);
+            ESL.Size = new Size(180, 26);
             ESL.Text = "Location";
             // 
             // ESTT
             // 
             ESTT.ForeColor = Color.FromArgb(60, 63, 65);
             ESTT.Name = "ESTT";
-            ESTT.Size = new Size(130, 26);
+            ESTT.Size = new Size(180, 26);
             ESTT.Text = "Title";
             // 
             // panelA
@@ -660,6 +660,7 @@ namespace Calendar
             TSP.Name = "TSP";
             TSP.Size = new Size(180, 26);
             TSP.Text = "Priority";
+            TSP.Click += TSP_Click;
             // 
             // TST
             // 
