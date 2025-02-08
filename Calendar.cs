@@ -568,7 +568,6 @@ namespace Calendar
             appointmentsLoaded = true;
         }
 
-        /*
         private void addAppointment(string title, string date)
         {
             int rowIndex = tableAppointments.RowCount - 1;
@@ -578,99 +577,18 @@ namespace Calendar
             {
                 Text = title,
                 AutoSize = true,
-                ContextMenuStrip = cmsAppointments
-            };
-            titleLabel.ContextMenuStrip.Items[0].Tag = new { Title = title, Date = date };
-            titleLabel.ContextMenuStrip.Items[1].Tag = new { Title = title, Date = date };
-            titleLabel.ContextMenuStrip.Items[2].Tag = new { Title = title, Date = date };
-            titleLabel.ContextMenuStrip.Items[3].Tag = new { Title = title, Date = date };
-            tableAppointments.Controls.Add(titleLabel, 0, rowIndex);
-
-            Label dateLabel = new Label
-            {
-                Text = date,
-                AutoSize = true,
-                ContextMenuStrip = cmsAppointments
-            };
-            dateLabel.ContextMenuStrip.Items[0].Tag = new { Title = title, Date = date };
-            dateLabel.ContextMenuStrip.Items[1].Tag = new { Title = title, Date = date };
-            dateLabel.ContextMenuStrip.Items[2].Tag = new { Title = title, Date = date };
-            dateLabel.ContextMenuStrip.Items[3].Tag = new { Title = title, Date = date };
-            tableAppointments.Controls.Add(dateLabel, 1, rowIndex);
-
-            tableAppointments.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-        }
-
-        private void addAppointment(string title, string date)
-        {
-            int rowIndex = tableAppointments.RowCount - 1;
-            tableAppointments.RowCount++;
-
-            ContextMenuStrip appointmentMenu = new ContextMenuStrip();
-
-            ToolStripMenuItem viewAppointment = new ToolStripMenuItem("View Appointment");
-            viewAppointment.Click += viewA_Click;
-            viewAppointment.Tag = new { Title = title, Date = date };
-
-            ToolStripMenuItem deleteAppointment = new ToolStripMenuItem("Delete Appointment");
-            deleteAppointment.Click += deleteA_Click;
-            deleteAppointment.Tag = new { Title = title, Date = date };
-
-            ToolStripMenuItem markCompleted = new ToolStripMenuItem("Mark as Completed");
-            markCompleted.Click += macoA_Click;
-            markCompleted.Tag = new { Title = title, Date = date };
-
-            ToolStripMenuItem markCanceled = new ToolStripMenuItem("Mark as Canceled");
-            markCanceled.Click += macaA_Click;
-            markCanceled.Tag = new { Title = title, Date = date };
-
-            appointmentMenu.Items.Add(viewAppointment);
-            appointmentMenu.Items.Add(deleteAppointment);
-            appointmentMenu.Items.Add(markCompleted);
-            appointmentMenu.Items.Add(markCanceled);
-
-            Label titleLabel = new Label
-            {
-                Text = title,
-                AutoSize = true,
-                ContextMenuStrip = appointmentMenu
-            };
-            tableAppointments.Controls.Add(titleLabel, 0, rowIndex);
-
-            Label dateLabel = new Label
-            {
-                Text = date,
-                AutoSize = true,
-                ContextMenuStrip = appointmentMenu
-            };
-            tableAppointments.Controls.Add(dateLabel, 1, rowIndex);
-
-            tableAppointments.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-        }*/
-
-        private void addAppointment(string title, string date)
-        {
-            int rowIndex = tableAppointments.RowCount - 1;
-            tableAppointments.RowCount++;
-
-            // Create the labels for the appointment
-            Label titleLabel = new Label
-            {
-                Text = title,
-                AutoSize = true,
-                ContextMenuStrip = cmsAppointments, // Use your existing context menu
-                Tag = new { Title = title, Date = date } // Store appointment details
-            };
-
-            Label dateLabel = new Label
-            {
-                Text = date,
-                AutoSize = true,
-                ContextMenuStrip = cmsAppointments, // Use the same context menu
+                ContextMenuStrip = cmsAppointments,
                 Tag = new { Title = title, Date = date }
             };
 
-            // Assign a MouseDown event to update the menu's selected appointment
+            Label dateLabel = new Label
+            {
+                Text = date,
+                AutoSize = true,
+                ContextMenuStrip = cmsAppointments,
+                Tag = new { Title = title, Date = date }
+            };
+
             titleLabel.MouseDown += appointment_MouseDown;
             dateLabel.MouseDown += appointment_MouseDown;
 
@@ -685,7 +603,6 @@ namespace Calendar
             {
                 dynamic appointmentData = label.Tag;
 
-                // Update each menu item's Tag dynamically
                 viewA.Tag = appointmentData;
                 deleteA.Tag = appointmentData;
                 macoA.Tag = appointmentData;
