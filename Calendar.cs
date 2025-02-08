@@ -822,6 +822,7 @@ namespace Calendar
             eventsLoaded = true;
         }
 
+        /*
         private void addEvent(string title, string date)
         {
             int rowIndex = tableEvents.RowCount - 1;
@@ -848,6 +849,46 @@ namespace Calendar
             tableEvents.Controls.Add(dateLabel, 1, rowIndex);
 
             tableEvents.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        }*/
+
+        private void addEvent(string title, string date)
+        {
+            int rowIndex = tableEvents.RowCount - 1;
+            tableEvents.RowCount++;
+
+            Label titleLabel = new Label
+            {
+                Text = title,
+                AutoSize = true,
+                ContextMenuStrip = cmsEvents,
+                Tag = new { Title = title, Date = date }
+            };
+
+            Label dateLabel = new Label
+            {
+                Text = date,
+                AutoSize = true,
+                ContextMenuStrip = cmsEvents,
+                Tag = new { Title = title, Date = date }
+            };
+
+            titleLabel.MouseDown += event_MouseDown;
+            dateLabel.MouseDown += event_MouseDown;
+
+            tableEvents.Controls.Add(titleLabel, 0, rowIndex);
+            tableEvents.Controls.Add(dateLabel, 1, rowIndex);
+            tableEvents.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        }
+
+        private void event_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && sender is Label label && label.Tag is not null)
+            {
+                dynamic eventData = label.Tag;
+
+                viewEvent.Tag = eventData;
+                deleteEvent.Tag = eventData;
+            }
         }
 
         private void EN_Click(object sender, EventArgs e)
