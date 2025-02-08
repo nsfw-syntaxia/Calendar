@@ -800,7 +800,11 @@ namespace Calendar
                     string date = parts[2];
                     string type = parts[7];
 
-                    if (filterType.ToLower() == "social" && type.ToLower() == "social")
+                    if (filterType.ToLower() == "personal" && type.ToLower() == "personal")
+                    {
+                        addEvent(title, date);
+                    }
+                    else if (filterType.ToLower() == "social" && type.ToLower() == "social")
                     {
                         addEvent(title, date);
                     }
@@ -939,6 +943,12 @@ namespace Calendar
 
                 loadEvents("all");
             }
+        }
+
+        private void EFP_Click(object sender, EventArgs e)
+        {
+            eventFilter = "personal";
+            loadEvents(eventFilter);
         }
 
         private void EFSO_Click(object sender, EventArgs e)

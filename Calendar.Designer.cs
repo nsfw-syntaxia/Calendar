@@ -44,6 +44,7 @@ namespace Calendar
             EN = new ToolStripMenuItem();
             EF = new ToolStripMenuItem();
             EFA = new ToolStripMenuItem();
+            EFP = new ToolStripMenuItem();
             EFSO = new ToolStripMenuItem();
             EFSC = new ToolStripMenuItem();
             EFW = new ToolStripMenuItem();
@@ -276,31 +277,39 @@ namespace Calendar
             // 
             EN.ForeColor = Color.FromArgb(60, 63, 65);
             EN.Name = "EN";
-            EN.Size = new Size(113, 26);
+            EN.Size = new Size(180, 26);
             EN.Text = "New";
             EN.Click += EN_Click;
             // 
             // EF
             // 
-            EF.DropDownItems.AddRange(new ToolStripItem[] { EFA, EFSO, EFSC, EFW });
+            EF.DropDownItems.AddRange(new ToolStripItem[] { EFA, EFP, EFSO, EFSC, EFW });
             EF.ForeColor = Color.FromArgb(60, 63, 65);
             EF.Name = "EF";
-            EF.Size = new Size(113, 26);
+            EF.Size = new Size(180, 26);
             EF.Text = "Filter";
             // 
             // EFA
             // 
             EFA.ForeColor = Color.FromArgb(60, 63, 65);
             EFA.Name = "EFA";
-            EFA.Size = new Size(119, 26);
+            EFA.Size = new Size(180, 26);
             EFA.Text = "All";
             EFA.Click += EFA_Click;
+            // 
+            // EFP
+            // 
+            EFP.ForeColor = Color.FromArgb(60, 63, 65);
+            EFP.Name = "EFP";
+            EFP.Size = new Size(180, 26);
+            EFP.Text = "Personal";
+            EFP.Click += EFP_Click;
             // 
             // EFSO
             // 
             EFSO.ForeColor = Color.FromArgb(60, 63, 65);
             EFSO.Name = "EFSO";
-            EFSO.Size = new Size(119, 26);
+            EFSO.Size = new Size(180, 26);
             EFSO.Text = "Social";
             EFSO.Click += EFSO_Click;
             // 
@@ -308,7 +317,7 @@ namespace Calendar
             // 
             EFSC.ForeColor = Color.FromArgb(60, 63, 65);
             EFSC.Name = "EFSC";
-            EFSC.Size = new Size(119, 26);
+            EFSC.Size = new Size(180, 26);
             EFSC.Text = "School";
             EFSC.Click += EFSC_Click;
             // 
@@ -316,7 +325,7 @@ namespace Calendar
             // 
             EFW.ForeColor = Color.FromArgb(60, 63, 65);
             EFW.Name = "EFW";
-            EFW.Size = new Size(119, 26);
+            EFW.Size = new Size(180, 26);
             EFW.Text = "Work";
             EFW.Click += EFW_Click;
             // 
@@ -325,7 +334,7 @@ namespace Calendar
             ES.DropDownItems.AddRange(new ToolStripItem[] { ESD, ESL, ESTT });
             ES.ForeColor = Color.FromArgb(60, 63, 65);
             ES.Name = "ES";
-            ES.Size = new Size(113, 26);
+            ES.Size = new Size(180, 26);
             ES.Text = "Sort";
             // 
             // ESD
@@ -1203,5 +1212,6 @@ namespace Calendar
         private ToolStripMenuItem deleteEvent;
         private ToolStripMenuItem TFA;
         private ToolStripMenuItem AFA;
+        private ToolStripMenuItem EFP;
     }
 }
