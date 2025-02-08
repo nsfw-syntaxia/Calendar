@@ -822,35 +822,6 @@ namespace Calendar
             eventsLoaded = true;
         }
 
-        /*
-        private void addEvent(string title, string date)
-        {
-            int rowIndex = tableEvents.RowCount - 1;
-            tableEvents.RowCount++;
-
-            Label titleLabel = new Label
-            {
-                Text = title,
-                AutoSize = true,
-                ContextMenuStrip = cmsEvents
-            };
-            titleLabel.ContextMenuStrip.Items[0].Tag = new { Title = title, Date = date };
-            titleLabel.ContextMenuStrip.Items[1].Tag = new { Title = title, Date = date };
-            tableEvents.Controls.Add(titleLabel, 0, rowIndex);
-
-            Label dateLabel = new Label
-            {
-                Text = date,
-                AutoSize = true,
-                ContextMenuStrip = cmsEvents
-            };
-            dateLabel.ContextMenuStrip.Items[0].Tag = new { Title = title, Date = date };
-            dateLabel.ContextMenuStrip.Items[1].Tag = new { Title = title, Date = date };
-            tableEvents.Controls.Add(dateLabel, 1, rowIndex);
-
-            tableEvents.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-        }*/
-
         private void addEvent(string title, string date)
         {
             int rowIndex = tableEvents.RowCount - 1;
