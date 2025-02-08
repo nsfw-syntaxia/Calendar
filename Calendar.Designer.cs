@@ -922,9 +922,9 @@ namespace Calendar
             lblDate.ForeColor = Color.FromArgb(60, 63, 65);
             lblDate.Location = new Point(281, 71);
             lblDate.Name = "lblDate";
-            lblDate.Size = new Size(155, 41);
+            lblDate.Size = new Size(233, 41);
             lblDate.TabIndex = 48;
-            lblDate.Text = "Calendar";
+            lblDate.Text = "Calendar Date";
             // 
             // tableDays
             // 
