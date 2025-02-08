@@ -907,9 +907,8 @@ namespace Calendar
             tbxSearch.Font = new Font("ISOCPEUR", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tbxSearch.ForeColor = Color.FromArgb(60, 63, 65);
             tbxSearch.Location = new Point(1136, 40);
-            tbxSearch.Multiline = true;
             tbxSearch.Name = "tbxSearch";
-            tbxSearch.Size = new Size(251, 21);
+            tbxSearch.Size = new Size(251, 20);
             tbxSearch.TabIndex = 47;
             tbxSearch.Text = "Search";
             tbxSearch.Enter += tbxSearch_Enter;
