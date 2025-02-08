@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Calendar
@@ -73,6 +75,120 @@ namespace Calendar
             if (string.IsNullOrWhiteSpace(tbxSearch.Text))
             {
                 tbxSearch.Text = "Search";
+            }
+        }
+
+        private void tbxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string searchQuery = tbxSearch.Text.Trim();
+                if (!string.IsNullOrEmpty(searchQuery) && searchQuery != "Search")
+                {
+                    searchEntries(searchQuery);
+                }
+            }
+        }
+
+        private void searchEntries(string searchQuery)
+        {
+            baseDirectory = AppContext.BaseDirectory;
+
+            string tasksPath = Path.Combine(baseDirectory, "User_Inputs", "Tasks.txt");
+            string appointmentsPath = Path.Combine(baseDirectory, "User_Inputs", "Appointments.txt");
+            string eventsPath = Path.Combine(baseDirectory, "User_Inputs", "Events.txt");
+
+            StringBuilder results = new StringBuilder();
+            bool foundResults = false;
+
+            if (File.Exists(tasksPath))
+            {
+                StringBuilder tasksResults = new StringBuilder("TASKS\n");
+                bool taskFound = false;
+
+                foreach (string line in File.ReadLines(tasksPath))
+                {
+                    string[] parts = line.Split(',');
+                    if (parts.Length < 3) continue;
+
+                    string title = parts[1];
+                    string date = parts[2];
+
+                    if (date == searchQuery || title.IndexOf(searchQuery, StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        tasksResults.AppendLine($"{date}: {title}");
+                        taskFound = true;
+                    }
+                }
+
+                if (taskFound)
+                {
+                    results.Append(tasksResults).AppendLine();
+                    foundResults = true;
+                }
+            }
+
+            if (File.Exists(appointmentsPath))
+            {
+                StringBuilder appointmentsResults = new StringBuilder("APPOINTMENTS\n");
+                bool appointmentFound = false;
+
+                foreach (string line in File.ReadLines(appointmentsPath))
+                {
+                    string[] parts = line.Split(',');
+                    if (parts.Length < 3) continue;
+
+                    string title = parts[1];
+                    string date = parts[2];
+
+                    if (date == searchQuery || title.IndexOf(searchQuery, StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        appointmentsResults.AppendLine($"{date}: {title}");
+                        appointmentFound = true;
+                    }
+                }
+
+                if (appointmentFound)
+                {
+                    results.Append(appointmentsResults).AppendLine();
+                    foundResults = true;
+                }
+            }
+
+            if (File.Exists(eventsPath))
+            {
+                StringBuilder eventsResults = new StringBuilder("EVENTS\n");
+                bool eventFound = false;
+
+                foreach (string line in File.ReadLines(eventsPath))
+                {
+                    string[] parts = line.Split(',');
+                    if (parts.Length < 3) continue;
+
+                    string title = parts[1];
+                    string date = parts[2];
+
+                    if (date == searchQuery || title.IndexOf(searchQuery, StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        eventsResults.AppendLine($"{date}: {title}");
+                        eventFound = true;
+                    }
+                }
+
+                if (eventFound)
+                {
+                    results.Append(eventsResults).AppendLine();
+                    foundResults = true;
+                }
+            }
+
+            if (foundResults)
+            {
+                MessageBox.Show(results.ToString().Trim(), "Search Results", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No matches found.", "Search Results", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

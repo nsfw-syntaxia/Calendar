@@ -275,7 +275,7 @@ namespace Calendar
             // 
             EN.ForeColor = Color.FromArgb(60, 63, 65);
             EN.Name = "EN";
-            EN.Size = new Size(180, 26);
+            EN.Size = new Size(113, 26);
             EN.Text = "New";
             EN.Click += EN_Click;
             // 
@@ -284,7 +284,7 @@ namespace Calendar
             EF.DropDownItems.AddRange(new ToolStripItem[] { EFA, EFP, EFSO, EFSC, EFW });
             EF.ForeColor = Color.FromArgb(60, 63, 65);
             EF.Name = "EF";
-            EF.Size = new Size(180, 26);
+            EF.Size = new Size(113, 26);
             EF.Text = "Filter";
             // 
             // EFA
@@ -332,14 +332,14 @@ namespace Calendar
             ES.DropDownItems.AddRange(new ToolStripItem[] { ESD, ESTT });
             ES.ForeColor = Color.FromArgb(60, 63, 65);
             ES.Name = "ES";
-            ES.Size = new Size(180, 26);
+            ES.Size = new Size(113, 26);
             ES.Text = "Sort";
             // 
             // ESD
             // 
             ESD.ForeColor = Color.FromArgb(60, 63, 65);
             ESD.Name = "ESD";
-            ESD.Size = new Size(180, 26);
+            ESD.Size = new Size(108, 26);
             ESD.Text = "Date";
             ESD.Click += ESD_Click;
             // 
@@ -347,7 +347,7 @@ namespace Calendar
             // 
             ESTT.ForeColor = Color.FromArgb(60, 63, 65);
             ESTT.Name = "ESTT";
-            ESTT.Size = new Size(180, 26);
+            ESTT.Size = new Size(108, 26);
             ESTT.Text = "Title";
             ESTT.Click += ESTT_Click;
             // 
@@ -912,6 +912,7 @@ namespace Calendar
             tbxSearch.TabIndex = 47;
             tbxSearch.Text = "Search";
             tbxSearch.Enter += tbxSearch_Enter;
+            tbxSearch.KeyDown += tbxSearch_KeyDown;
             tbxSearch.Leave += tbxSearch_Leave;
             // 
             // lblDate
