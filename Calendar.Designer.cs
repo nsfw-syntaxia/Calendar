@@ -50,7 +50,6 @@ namespace Calendar
             EFW = new ToolStripMenuItem();
             ES = new ToolStripMenuItem();
             ESD = new ToolStripMenuItem();
-            ESL = new ToolStripMenuItem();
             ESTT = new ToolStripMenuItem();
             panelA = new Panel();
             flpAppointment = new FlowLayoutPanel();
@@ -276,7 +275,7 @@ namespace Calendar
             // 
             EN.ForeColor = Color.FromArgb(60, 63, 65);
             EN.Name = "EN";
-            EN.Size = new Size(113, 26);
+            EN.Size = new Size(180, 26);
             EN.Text = "New";
             EN.Click += EN_Click;
             // 
@@ -285,7 +284,7 @@ namespace Calendar
             EF.DropDownItems.AddRange(new ToolStripItem[] { EFA, EFP, EFSO, EFSC, EFW });
             EF.ForeColor = Color.FromArgb(60, 63, 65);
             EF.Name = "EF";
-            EF.Size = new Size(113, 26);
+            EF.Size = new Size(180, 26);
             EF.Text = "Filter";
             // 
             // EFA
@@ -330,31 +329,24 @@ namespace Calendar
             // 
             // ES
             // 
-            ES.DropDownItems.AddRange(new ToolStripItem[] { ESD, ESL, ESTT });
+            ES.DropDownItems.AddRange(new ToolStripItem[] { ESD, ESTT });
             ES.ForeColor = Color.FromArgb(60, 63, 65);
             ES.Name = "ES";
-            ES.Size = new Size(113, 26);
+            ES.Size = new Size(180, 26);
             ES.Text = "Sort";
             // 
             // ESD
             // 
             ESD.ForeColor = Color.FromArgb(60, 63, 65);
             ESD.Name = "ESD";
-            ESD.Size = new Size(130, 26);
+            ESD.Size = new Size(180, 26);
             ESD.Text = "Date";
-            // 
-            // ESL
-            // 
-            ESL.ForeColor = Color.FromArgb(60, 63, 65);
-            ESL.Name = "ESL";
-            ESL.Size = new Size(130, 26);
-            ESL.Text = "Location";
             // 
             // ESTT
             // 
             ESTT.ForeColor = Color.FromArgb(60, 63, 65);
             ESTT.Name = "ESTT";
-            ESTT.Size = new Size(130, 26);
+            ESTT.Size = new Size(180, 26);
             ESTT.Text = "Title";
             // 
             // panelA
@@ -438,7 +430,7 @@ namespace Calendar
             // 
             AN.ForeColor = Color.FromArgb(60, 63, 65);
             AN.Name = "AN";
-            AN.Size = new Size(180, 26);
+            AN.Size = new Size(113, 26);
             AN.Text = "New";
             AN.Click += AN_Click;
             // 
@@ -447,7 +439,7 @@ namespace Calendar
             AF.DropDownItems.AddRange(new ToolStripItem[] { AFA, AFU, AFCO, AFCA });
             AF.ForeColor = Color.FromArgb(60, 63, 65);
             AF.Name = "AF";
-            AF.Size = new Size(180, 26);
+            AF.Size = new Size(113, 26);
             AF.Text = "Filter";
             // 
             // AFA
@@ -487,14 +479,14 @@ namespace Calendar
             AS.DropDownItems.AddRange(new ToolStripItem[] { ASD, ASTT });
             AS.ForeColor = Color.FromArgb(60, 63, 65);
             AS.Name = "AS";
-            AS.Size = new Size(180, 26);
+            AS.Size = new Size(113, 26);
             AS.Text = "Sort";
             // 
             // ASD
             // 
             ASD.ForeColor = Color.FromArgb(60, 63, 65);
             ASD.Name = "ASD";
-            ASD.Size = new Size(180, 26);
+            ASD.Size = new Size(108, 26);
             ASD.Text = "Date";
             ASD.Click += ASD_Click;
             // 
@@ -502,7 +494,7 @@ namespace Calendar
             // 
             ASTT.ForeColor = Color.FromArgb(60, 63, 65);
             ASTT.Name = "ASTT";
-            ASTT.Size = new Size(180, 26);
+            ASTT.Size = new Size(108, 26);
             ASTT.Text = "Title";
             ASTT.Click += ASTT_Click;
             // 
@@ -1182,7 +1174,6 @@ namespace Calendar
         private ToolStripMenuItem EFW;
         private ToolStripMenuItem ES;
         private ToolStripMenuItem ESD;
-        private ToolStripMenuItem ESL;
         private ToolStripMenuItem ESTT;
         private FlowLayoutPanel flpTask;
         private FlowLayoutPanel flpEvent;
