@@ -1,4 +1,4 @@
-﻿namespace Calendar
+namespace Calendar
 {
     partial class Calendar
     {
