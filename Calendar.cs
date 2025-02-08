@@ -348,36 +348,6 @@ namespace Calendar
             tasksLoaded = true;
         }
 
-        /*
-        private void addTask(string title, string date)
-        {
-            int rowIndex = tableTasks.RowCount - 1;
-            tableTasks.RowCount++;
-
-            Label titleLabel = new Label
-            {
-                Text = title,
-                AutoSize = true,
-                ContextMenuStrip = cmsTasks
-            };
-            titleLabel.ContextMenuStrip.Items[0].Tag = new { Title = title, Date = date };
-            titleLabel.ContextMenuStrip.Items[1].Tag = new { Title = title, Date = date };
-            titleLabel.ContextMenuStrip.Items[2].Tag = new { Title = title, Date = date };
-            tableTasks.Controls.Add(titleLabel, 0, rowIndex);
-
-            Label dateLabel = new Label
-            {
-                Text = date,
-                AutoSize = true,
-                ContextMenuStrip = cmsTasks
-            };
-            dateLabel.ContextMenuStrip.Items[0].Tag = new { Title = title, Date = date };
-            dateLabel.ContextMenuStrip.Items[1].Tag = new { Title = title, Date = date };
-            dateLabel.ContextMenuStrip.Items[2].Tag = new { Title = title, Date = date };
-            tableTasks.Controls.Add(dateLabel, 1, rowIndex);
-            tableTasks.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-        }*/
-
         private void addTask(string title, string date)
         {
             int rowIndex = tableTasks.RowCount - 1;
