@@ -347,7 +347,7 @@ namespace Calendar
 
             tasksLoaded = true;
         }
-
+        /*
         private void addTask(string title, string date)
         {
             int rowIndex = tableTasks.RowCount - 1;
@@ -388,6 +388,47 @@ namespace Calendar
             tableTasks.Controls.Add(dateLabel, 1, rowIndex);
 
             tableTasks.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        }*/
+
+        private void addTask(string title, string date)
+        {
+            int rowIndex = tableTasks.RowCount - 1;
+            tableTasks.RowCount++;
+
+            Label titleLabel = new Label
+            {
+                Text = title,
+                AutoSize = true,
+                ContextMenuStrip = cmsTasks,
+                Tag = new { Title = title, Date = date }
+            };
+
+            Label dateLabel = new Label
+            {
+                Text = date,
+                AutoSize = true,
+                ContextMenuStrip = cmsTasks,
+                Tag = new { Title = title, Date = date }
+            };
+
+            titleLabel.MouseDown += task_MouseDown;
+            dateLabel.MouseDown += task_MouseDown;
+
+            tableTasks.Controls.Add(titleLabel, 0, rowIndex);
+            tableTasks.Controls.Add(dateLabel, 1, rowIndex);
+            tableTasks.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        }
+
+        private void task_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && sender is Label label && label.Tag is not null)
+            {
+                dynamic taskData = label.Tag;
+
+                viewTask.Tag = taskData;
+                deleteTask.Tag = taskData;
+                macTask.Tag = taskData;
+            }
         }
 
         private void TN_Click(object sender, EventArgs e)
