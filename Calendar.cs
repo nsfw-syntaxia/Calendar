@@ -1084,15 +1084,52 @@ namespace Calendar
             loadEvents(eventFilter);
         }
 
-        private void ESD_Click(object sender, EventArgs e)
+        private void sortEvents(string sortBy)
         {
+            baseDirectory = AppContext.BaseDirectory;
+            filePath = Path.Combine(baseDirectory, "User_Inputs", "Events.txt");
 
+            if (!File.Exists(filePath))
+            {
+                MessageBox.Show("Events.txt not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            List<EventList> eventList = new List<EventList>();
+
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(',');
+                    if (parts.Length < 8) continue;
+
+                    string title = parts[1];
+                    if (!DateTime.TryParse(parts[2], out DateTime date)) continue;
+
+                    eventList.Add(new EventList { Title = title, Date = date });
+                }
+            }
+
+            eventList = sortBy switch
+            {
+                "date" => eventList.OrderBy(app => app.Date).ToList(),
+                "title" => eventList.OrderBy(app => app.Title, StringComparer.OrdinalIgnoreCase).ToList(),
+                _ => eventList
+            };
+
+            tableEvents.Controls.Clear();
+            tableEvents.RowCount = 1;
+
+            foreach (var evnt in eventList)
+            {
+                addEvent(evnt.Title, evnt.Date.ToString("MM-dd-yyyy"));
+            }
         }
 
-        private void ESTT_Click(object sender, EventArgs e)
-        {
-
-        }
+        private void ESD_Click(object sender, EventArgs e) => sortEvents("date");
+        private void ESTT_Click(object sender, EventArgs e) => sortEvents("title");
     }
 
     class TaskList
@@ -1103,6 +1140,12 @@ namespace Calendar
     }
 
     class AppointmentList
+    {
+        public string Title { get; set; }
+        public DateTime Date { get; set; }
+    }
+
+    class EventList
     {
         public string Title { get; set; }
         public DateTime Date { get; set; }
