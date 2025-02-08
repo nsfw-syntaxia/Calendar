@@ -457,7 +457,54 @@ namespace Calendar
 
         private void TSP_Click(object sender, EventArgs e)
         {
-            // sort tasks by priority (high on top, to low)
+            baseDirectory = AppContext.BaseDirectory;
+            filePath = Path.Combine(baseDirectory, "User_Inputs", "Tasks.txt");
+
+            if (!File.Exists(filePath))
+            {
+                MessageBox.Show("Tasks.txt not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            List<TaskList> taskList = new List<TaskList>();
+
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(',');
+
+                    if (parts.Length < 6) continue;
+
+                    string title = parts[1];
+                    DateTime date;
+
+                    if (!DateTime.TryParse(parts[2], out date)) continue;
+
+                    string priorityString = parts[4].Trim().ToLower();
+
+                    int priority = priorityString switch
+                    {
+                        "high" => 3,
+                        "medium" => 2,
+                        "low" => 1,
+                        _ => 1
+                    };
+
+                    taskList.Add(new TaskList { Title = title, Date = date, Priority = priority });
+                }
+            }
+
+            taskList = taskList.OrderByDescending(task => task.Priority).ToList();
+
+            tableTasks.Controls.Clear();
+            tableTasks.RowCount = 1;
+
+            foreach (var task in taskList)
+            {
+                addTask(task.Title, task.Date.ToString("MM-dd-yyyy"));
+            }
         }
 
         private void viewTask_Click(object sender, EventArgs e)
