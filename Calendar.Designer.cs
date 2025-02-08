@@ -66,7 +66,6 @@ namespace Calendar
             AFCA = new ToolStripMenuItem();
             AS = new ToolStripMenuItem();
             ASD = new ToolStripMenuItem();
-            AST = new ToolStripMenuItem();
             ASTT = new ToolStripMenuItem();
             panelT = new Panel();
             flpTask = new FlowLayoutPanel();
@@ -277,7 +276,7 @@ namespace Calendar
             // 
             EN.ForeColor = Color.FromArgb(60, 63, 65);
             EN.Name = "EN";
-            EN.Size = new Size(180, 26);
+            EN.Size = new Size(113, 26);
             EN.Text = "New";
             EN.Click += EN_Click;
             // 
@@ -286,7 +285,7 @@ namespace Calendar
             EF.DropDownItems.AddRange(new ToolStripItem[] { EFA, EFP, EFSO, EFSC, EFW });
             EF.ForeColor = Color.FromArgb(60, 63, 65);
             EF.Name = "EF";
-            EF.Size = new Size(180, 26);
+            EF.Size = new Size(113, 26);
             EF.Text = "Filter";
             // 
             // EFA
@@ -334,7 +333,7 @@ namespace Calendar
             ES.DropDownItems.AddRange(new ToolStripItem[] { ESD, ESL, ESTT });
             ES.ForeColor = Color.FromArgb(60, 63, 65);
             ES.Name = "ES";
-            ES.Size = new Size(180, 26);
+            ES.Size = new Size(113, 26);
             ES.Text = "Sort";
             // 
             // ESD
@@ -439,7 +438,7 @@ namespace Calendar
             // 
             AN.ForeColor = Color.FromArgb(60, 63, 65);
             AN.Name = "AN";
-            AN.Size = new Size(113, 26);
+            AN.Size = new Size(180, 26);
             AN.Text = "New";
             AN.Click += AN_Click;
             // 
@@ -448,7 +447,7 @@ namespace Calendar
             AF.DropDownItems.AddRange(new ToolStripItem[] { AFA, AFU, AFCO, AFCA });
             AF.ForeColor = Color.FromArgb(60, 63, 65);
             AF.Name = "AF";
-            AF.Size = new Size(113, 26);
+            AF.Size = new Size(180, 26);
             AF.Text = "Filter";
             // 
             // AFA
@@ -485,32 +484,27 @@ namespace Calendar
             // 
             // AS
             // 
-            AS.DropDownItems.AddRange(new ToolStripItem[] { ASD, AST, ASTT });
+            AS.DropDownItems.AddRange(new ToolStripItem[] { ASD, ASTT });
             AS.ForeColor = Color.FromArgb(60, 63, 65);
             AS.Name = "AS";
-            AS.Size = new Size(113, 26);
+            AS.Size = new Size(180, 26);
             AS.Text = "Sort";
             // 
             // ASD
             // 
             ASD.ForeColor = Color.FromArgb(60, 63, 65);
             ASD.Name = "ASD";
-            ASD.Size = new Size(108, 26);
+            ASD.Size = new Size(180, 26);
             ASD.Text = "Date";
-            // 
-            // AST
-            // 
-            AST.ForeColor = Color.FromArgb(60, 63, 65);
-            AST.Name = "AST";
-            AST.Size = new Size(108, 26);
-            AST.Text = "Time";
+            ASD.Click += ASD_Click;
             // 
             // ASTT
             // 
             ASTT.ForeColor = Color.FromArgb(60, 63, 65);
             ASTT.Name = "ASTT";
-            ASTT.Size = new Size(108, 26);
+            ASTT.Size = new Size(180, 26);
             ASTT.Text = "Title";
+            ASTT.Click += ASTT_Click;
             // 
             // panelT
             // 
@@ -602,7 +596,7 @@ namespace Calendar
             // 
             TN.ForeColor = Color.FromArgb(60, 63, 65);
             TN.Name = "TN";
-            TN.Size = new Size(180, 26);
+            TN.Size = new Size(113, 26);
             TN.Text = "New";
             TN.Click += TN_Click;
             // 
@@ -611,7 +605,7 @@ namespace Calendar
             TF.DropDownItems.AddRange(new ToolStripItem[] { TFA, TFP, TFC });
             TF.ForeColor = Color.FromArgb(60, 63, 65);
             TF.Name = "TF";
-            TF.Size = new Size(180, 26);
+            TF.Size = new Size(113, 26);
             TF.Text = "Filter";
             // 
             // TFA
@@ -643,14 +637,14 @@ namespace Calendar
             TS.DropDownItems.AddRange(new ToolStripItem[] { TSD, TSP, TST });
             TS.ForeColor = Color.FromArgb(60, 63, 65);
             TS.Name = "TS";
-            TS.Size = new Size(180, 26);
+            TS.Size = new Size(113, 26);
             TS.Text = "Sort";
             // 
             // TSD
             // 
             TSD.ForeColor = Color.FromArgb(60, 63, 65);
             TSD.Name = "TSD";
-            TSD.Size = new Size(180, 26);
+            TSD.Size = new Size(126, 26);
             TSD.Text = "Date";
             TSD.Click += TSD_Click;
             // 
@@ -658,7 +652,7 @@ namespace Calendar
             // 
             TSP.ForeColor = Color.FromArgb(60, 63, 65);
             TSP.Name = "TSP";
-            TSP.Size = new Size(180, 26);
+            TSP.Size = new Size(126, 26);
             TSP.Text = "Priority";
             TSP.Click += TSP_Click;
             // 
@@ -666,7 +660,7 @@ namespace Calendar
             // 
             TST.ForeColor = Color.FromArgb(60, 63, 65);
             TST.Name = "TST";
-            TST.Size = new Size(180, 26);
+            TST.Size = new Size(126, 26);
             TST.Text = "Title";
             TST.Click += TST_Click;
             // 
@@ -1176,7 +1170,6 @@ namespace Calendar
         private ToolStripMenuItem AFCA;
         private ToolStripMenuItem AS;
         private ToolStripMenuItem ASD;
-        private ToolStripMenuItem AST;
         private ToolStripMenuItem ASTT;
         private Panel panelE;
         private ReaLTaiizor.Controls.ParrotToolStrip toolStripE;

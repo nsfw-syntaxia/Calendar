@@ -432,7 +432,6 @@ namespace Calendar
                 while ((line = reader.ReadLine()) != null)
                 {
                     string[] parts = line.Split(',');
-
                     if (parts.Length < 6) continue;
 
                     string title = parts[1];
@@ -701,6 +700,53 @@ namespace Calendar
             appointmentFilter = "all";
             loadAppointments(appointmentFilter);
         }
+
+        private void sortAppointments(string sortBy)
+        {
+            baseDirectory = AppContext.BaseDirectory;
+            filePath = Path.Combine(baseDirectory, "User_Inputs", "Appointments.txt");
+
+            if (!File.Exists(filePath))
+            {
+                MessageBox.Show("Appointments.txt not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            List<AppointmentList> appointmentList = new List<AppointmentList>();
+
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(',');
+                    if (parts.Length < 7) continue;
+
+                    string title = parts[1];
+                    if (!DateTime.TryParse(parts[2], out DateTime date)) continue;
+
+                    appointmentList.Add(new AppointmentList { Title = title, Date = date });
+                }
+            }
+
+            appointmentList = sortBy switch
+            {
+                "date" => appointmentList.OrderBy(app => app.Date).ToList(),
+                "title" => appointmentList.OrderBy(app => app.Title, StringComparer.OrdinalIgnoreCase).ToList(),
+                _ => appointmentList
+            };
+
+            tableAppointments.Controls.Clear();
+            tableAppointments.RowCount = 1;
+
+            foreach (var appointment in appointmentList)
+            {
+                addAppointment(appointment.Title, appointment.Date.ToString("MM-dd-yyyy"));
+            }
+        }
+
+        private void ASD_Click(object sender, EventArgs e) => sortAppointments("date");
+        private void ASTT_Click(object sender, EventArgs e) => sortAppointments("title");
 
         private void viewA_Click(object sender, EventArgs e)
         {
@@ -1044,5 +1090,11 @@ namespace Calendar
         public string Title { get; set; }
         public DateTime Date { get; set; }
         public int Priority { get; set; }
+    }
+
+    class AppointmentList
+    {
+        public string Title { get; set; }
+        public DateTime Date { get; set; }
     }
 }
