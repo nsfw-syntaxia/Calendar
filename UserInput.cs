@@ -19,6 +19,7 @@ namespace Calendar
         public static List<Event> events = new List<Event>();
 
         private string baseDirectory;
+        private string folderPath;
         private string filePath;
 
         public UserInput(DateTime dateTime, int selectedTypeIndex)
@@ -184,7 +185,18 @@ namespace Calendar
         private void btnSaveT_Click(object sender, EventArgs e)
         {
             baseDirectory = AppContext.BaseDirectory;
-            filePath = Path.Combine(baseDirectory, "User_Inputs", "Tasks.txt");
+            folderPath = Path.Combine(baseDirectory, "User_Inputs");
+            filePath = Path.Combine(folderPath, "Tasks.txt");
+
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Close();
+            }
 
             List<string> errors = new List<string>();
 
@@ -235,7 +247,18 @@ namespace Calendar
         private void btnSaveA_Click(object sender, EventArgs e)
         {
             baseDirectory = AppContext.BaseDirectory;
-            filePath = Path.Combine(baseDirectory, "User_Inputs", "Appointments.txt");
+            folderPath = Path.Combine(baseDirectory, "User_Inputs");
+            filePath = Path.Combine(folderPath, "Appointments.txt");
+
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Close();
+            }
 
             List<string> errors = new List<string>();
 
@@ -302,7 +325,18 @@ namespace Calendar
         private void btnSaveE_Click(object sender, EventArgs e)
         {
             baseDirectory = AppContext.BaseDirectory;
-            filePath = Path.Combine(baseDirectory, "User_Inputs", "Events.txt");
+            folderPath = Path.Combine(baseDirectory, "User_Inputs");
+            filePath = Path.Combine(folderPath, "Events.txt");
+
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Close();
+            }
 
             List<string> errors = new List<string>();
 
@@ -367,7 +401,7 @@ namespace Calendar
                 Date = dtEDate.Value.Date,
                 StartTime = startTimeSpan,
                 EndTime = endTimeSpan,
-                Purpose = cmbxEPurpose.SelectedItem?.ToString() ?? "General"
+                Purpose = cmbxEPurpose.SelectedItem?.ToString() ?? "Personal"
             };
             events.Add(newEvent);
 
