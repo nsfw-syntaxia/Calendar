@@ -341,21 +341,21 @@ namespace Calendar
             // 
             ESD.ForeColor = Color.FromArgb(60, 63, 65);
             ESD.Name = "ESD";
-            ESD.Size = new Size(180, 26);
+            ESD.Size = new Size(130, 26);
             ESD.Text = "Date";
             // 
             // ESL
             // 
             ESL.ForeColor = Color.FromArgb(60, 63, 65);
             ESL.Name = "ESL";
-            ESL.Size = new Size(180, 26);
+            ESL.Size = new Size(130, 26);
             ESL.Text = "Location";
             // 
             // ESTT
             // 
             ESTT.ForeColor = Color.FromArgb(60, 63, 65);
             ESTT.Name = "ESTT";
-            ESTT.Size = new Size(180, 26);
+            ESTT.Size = new Size(130, 26);
             ESTT.Text = "Title";
             // 
             // panelA
@@ -668,6 +668,7 @@ namespace Calendar
             TST.Name = "TST";
             TST.Size = new Size(180, 26);
             TST.Text = "Title";
+            TST.Click += TST_Click;
             // 
             // cmsEvents
             // 

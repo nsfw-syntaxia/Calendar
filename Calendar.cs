@@ -475,7 +475,7 @@ namespace Calendar
                 {
                     string[] parts = line.Split(',');
 
-                    if (parts.Length < 6) continue;
+                    if (parts.Length < 3) continue;
 
                     string title = parts[1];
                     DateTime date;
@@ -505,6 +505,11 @@ namespace Calendar
             {
                 addTask(task.Title, task.Date.ToString("MM-dd-yyyy"));
             }
+        }
+
+        private void TST_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void viewTask_Click(object sender, EventArgs e)
