@@ -188,7 +188,7 @@ namespace Calendar
             }
             else
             {
-                MessageBox.Show("No matches found.", "Search Results", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No matches found!", "Search Results", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
