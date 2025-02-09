@@ -387,7 +387,7 @@ namespace Calendar
 
             if (errors.Any())
             {
-                MessageBox.Show(string.Join("\n", errors), "Errors", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Join("\n", errors), "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
